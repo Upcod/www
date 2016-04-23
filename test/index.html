@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Nuit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <!-- meta data -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- <script src="script.js"></script> -->
+    <style>
+        
+        @keyframes transition {
+            0%   { left:0%; top:470px; }
+            100% { left:99%; top:300px; }
+        }
+        
+        @keyframes scintille {
+            0%   { opacity: 0.4 }
+            50%   { opacity: 1 }
+            100%   { opacity: 0.4 }
+        }
+        
+         .filante {
+             position: relative;
+             left:0px; 
+             color:white;
+             font-size: 19px; 
+             opacity : 0.9;
+             animation: transition 1s linear; 
+
+        }
+        
+        body{            
+        
+            background-image:linear-gradient(#000000, #000033); 
+            height:100vh;
+        }
+        .etoile{
+            color:white;
+            opacity: 0.8;
+            position: fixed;
+        }
+        
+        .scin {
+            animation: scintille 2s linear infinite; 
+            color:white;
+            opacity: 0.8;
+            position: fixed;
+
+        }
+        
+        .lune{
+            position: fixed;
+            height: 50px;
+            width: 50px;
+            filter: saturate(30%); 
+            top: 147px;
+            left: 172px;
+            box-shadow: 0px 0px 16px #555;
+            border-radius: 100%
+            
+        }
+    </style>
+</head>
+<body>
+<span class="filante" class="etoile">*</span>
+<img class="lune" src="lune.png" />
+<script> 
+        nuit();
+        function nuit(){
+            
+            var MAXW = document.body.scrollWidth;
+            var MAXH = document.body.scrollHeight ;
+
+            var t = 0;
+            var r = 0;
+            var id = 0;
+            var s = "";
+            
+            var lastPosX = 0;
+            var lastPosY = 0;
+            
+            var numEtoile = Math.floor((Math.random() * 120) + 80);
+
+            for (i = 0; i < numEtoile; i++) { 
+
+                t = Math.floor((Math.random() * MAXH) + 1);
+                r = Math.floor((Math.random() * MAXW) + 1);
+               
+
+                var span = document.createElement('span');
+                span.innerHTML = "*";
+                id = "etoile-" + i;
+                
+                if (Math.random() > 0.8) {
+                    span.setAttribute('class', 'scin');
+                    s = "top:" + t + "px; left: " + r + "px; ";
+                } else {
+                    span.setAttribute('class', 'etoile');
+                    s = "top:" + t + "px; left: " + r + "px; opacity : " + Math.random() + ";";
+                }
+                span.setAttribute('id', id);
+                span.setAttribute('style', s);
+                document.body.appendChild(span);
+
+            }
+            
+            
+           /* document.addEventListener("mousemove", function(e) {
+                                
+                if (lastPosX != e.pageX) {
+                    for (i = 0; i < numEtoile; i++) { 
+                        id = "etoile-" + i;
+                        elmt = document.getElementById(id).style.left;
+                        elmt = parseInt(elmt) + 10 + "px";
+                        console.log(id + " : " + elmt);
+                    }
+                    lastPosX = e.pageX;
+                } else if (lastPosY != e.pageY) {
+                    for (i = 0; i < numEtoile; i++) { 
+                        id = "etoile-" + i;
+                        elmt = document.getElementById(id).style.top;
+                        elmt = parseInt(elmt) + 10 + "px";                    }
+                    lastPosY = e.pageY;
+                }
+                 
+            });*/
+        }
+    </script>
+    
+</body>
+</html>

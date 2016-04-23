@@ -1,0 +1,54 @@
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+@keyframes transition {
+    0%   { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.jumbotron {opacity:0; animation: transition 1s ease-in-out 1s forwards;}
+.secondText {opacity:0; animation: transition 2s ease-in-out 2s forwards;}
+.lead {opacity:0; animation: transition 3s ease-in-out 3s forwards;}
+
+.jumbotron {
+    margin-top: 30vh;
+    position: relative;
+    width: 50%;
+    border-radius: 10%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+
+}
+
+.jumbotron h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+.jumbotron small {
+    font-style: italic;
+    font-weight: 100;
+}
+
+.logo_git {
+    width: 22px;
+    height: 22px;
+
+    filter: saturate(900%);
+
+    margin-bottom:9px;
+}
+
+.link {
+    text-decoration: none;
+    color:green;
+}

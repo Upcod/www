@@ -1,0 +1,68 @@
+
+@keyframes scintille {
+    0%   { opacity: 0.4 }
+    50%   { opacity: 1 }
+    100%   { opacity: 0.4 }
+}
+
+@keyframes fillante {
+        0%   { left:0%; top:470px; }
+        100% { left:101%; top:300px; }
+    }
+
+/* css nuit */
+body{
+    background-image:linear-gradient(#000033, #33007F); 
+    /*background-image:linear-gradient(#000000, #000033); */
+    height:70vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.etoile{
+    color:white;
+    opacity: 0.8;
+    position: fixed;
+    z-index: 1;
+}
+
+.filante {
+    position: relative;
+    left:0px; 
+    top:470px; 
+    color:white;
+    font-size: 19px; 
+    opacity : 0.9;
+    animation: fillante 4s linear forwards; 
+
+}
+
+.scin {
+    animation: scintille 2s linear infinite ; 
+    color:white;
+    opacity: 0.8;
+    position: fixed;
+
+}
+
+.lune{
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    filter: saturate(30%); 
+    top: 102px;
+    left: 104px;
+    box-shadow: 0px 0px 16px #555;
+    border-radius: 100%
+
+}
+        
+        /* element jour */
+        
+.soleil {
+    display: none;
+}
+
+.mgf{
+    display: none;
+}
